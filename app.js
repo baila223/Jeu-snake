@@ -5,7 +5,7 @@ let score = 0
 const context = canvas.getContext('2d')
 
 const background = new Image()
-background.src = 'bg.png'
+background.src = 'background.png'
 
 const foodImg = new Image()
 foodImg.src  = 'food.png'
