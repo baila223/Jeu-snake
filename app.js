@@ -5,7 +5,7 @@ let score = 0
 const context = canvas.getContext('2d')
 
 const background = new Image()
-background.src = 'background.png'
+background.src = 'paysage.avif'
 
 const foodImg = new Image()
 foodImg.src  = 'food.png'
@@ -16,7 +16,7 @@ eatAudio.src = 'eat.mp3'
 const deadAudio = new Audio()
 deadAudio.src = 'dead.mp3'
 
-const unit = 30
+const unit = 20
 
 let food = {
     x:Math.floor(Math.random() *19+1)*unit,
@@ -114,3 +114,28 @@ const clickButton = () =>{
 }
 
 let play = setInterval(draw,100)
+function gameOver(){
+    ctx.save();
+    ctx.font = "bold 70px sans-serif";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = "5";
+    ctx.strokeText("Game Over", centreX, centreY - 180);
+    ctx.fillText("Game Over", centreX, centreY - 180);
+    ctx.font = "bold 30px sans-serif";
+    ctx.strokeText("Appuyer sur la touche espace pour rejouer", centreX, centreY - 120);
+    ctx.fillText("Appuyer sur la touche espace pour rejouer", centreX, centreY - 120);
+    ctx.restore();
+  }
+
+  function drawScore(){
+    ctx.save();
+    ctx.font = "bold 200px sans-serif";
+    ctx.fillStyle = "gray";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(score.toString(), centreX, centreY);
+    ctx.restore();
+  }
